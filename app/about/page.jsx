@@ -1,9 +1,10 @@
-"use client"
-import React, { useEffect } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import story from "@/public/images/story.jpg";
+import SplitImageEffect from "@/components/SplitImageEffect";
 
 const Page = () => {
   const controls = useAnimation();
@@ -39,6 +40,46 @@ const Page = () => {
     visibleBox: { opacity: 1, scale: 1 },
   };
 
+  const textVariants = {
+    hidden: { scale: 0, color: "#FFFFFF" },
+    visible: {
+      scale: 1,
+      color: "#800080",
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: Array.from({ length: 21 }, (_, i) => i * 0.05), // Creates an array [0, 0.05, 0.1, ..., 1]
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.getAttribute('data-index'), 10);
+        if (entry.intersectionRatio >= 0.9) {
+          setActiveIndex(index);
+        } else if (entry.intersectionRatio < 0.9 && activeIndex === index) {
+          setActiveIndex(-1); // Reset if the element is less than 50% visible
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const elements = document.querySelectorAll('.observer-element');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, [activeIndex]);
+
   return (
     <>
       <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 pt-20 flex flex-col gap-20">
@@ -73,23 +114,42 @@ const Page = () => {
           </motion.div>
         </div>
       </section>
-      <div className="sticky-wrapper h-[300vh]">
-        <section className="sticky-section sticky top-0 h-screen flex justify-center items-center bg-black">
+      <div className="sticky-wrapper">
+        <section className="sticky-section h-screen flex justify-center items-center bg-black">
           <div className="flex flex-col justify-center items-center">
             {["Something", "Then", "Crazy", "Happened"].map((text, index) => (
-              <p
+              <motion.p
                 key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={textVariants}
                 className="text-white text-6xl font-bold text-center"
               >
                 {text}
-              </p>
+              </motion.p>
             ))}
           </div>
         </section>
       </div>
-      <section className="h-screen bg-black text-white flex justify-center items-center">
-        <h2>Next Section Content</h2>
-      </section>
+      <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black text-white flex flex-col gap-36 justify-between items-center">
+      {Array(4).fill(0).map((_, index) => (
+        <div
+          key={index}
+          data-index={index}
+          className={`observer-element flex flex-col justify-center items-center gap-10 transition-transform duration-300 ease-in-out transform ${
+            index === activeIndex ? 'scale-110' : 'scale-100'
+          }`}>
+          <div className={`rounded-3xl flex justify-center items-center transition-colors duration-300 ease-in-out ${
+            index === activeIndex ? 'bg-purple-600' : 'bg-gray-500'
+          }`}>
+            <p className="text-6xl text-white font-semibold py-5 px-10">A</p>
+          </div>
+          <p className="text-white text-[80px] font-semibold">Narrative</p>
+        </div>
+      ))}
+    </section>
+   <SplitImageEffect/>
     </>
   );
 };
