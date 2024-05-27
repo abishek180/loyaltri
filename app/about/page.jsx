@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import story from "@/public/images/story.jpg";
 import SplitImageEffect from "@/components/SplitImageEffect";
+import TextEffect from "@/components/TextEffect";
 
 const Page = () => {
   const controls = useAnimation();
@@ -40,16 +41,7 @@ const Page = () => {
     visibleBox: { opacity: 1, scale: 1 },
   };
 
-  const textVariants = {
-    hidden: { scale: 0, color: "#FFFFFF" },
-    visible: {
-      scale: 1,
-      color: "#800080",
-      transition: {
-        duration: 1,
-      },
-    },
-  };
+ 
   const [activeIndex, setActiveIndex] = useState(-1);
 
   useEffect(() => {
@@ -82,7 +74,7 @@ const Page = () => {
 
   return (
     <>
-      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 pt-20 flex flex-col gap-20">
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 pt-20 py-20 flex flex-col gap-20">
         <div className="flex flex-col justify-center items-center gap-10 relative">
           <div className="w-[600px] h-[600px] overflow-hidden rounded-3xl">
             <Image
@@ -114,41 +106,25 @@ const Page = () => {
           </motion.div>
         </div>
       </section>
-      <div className="sticky-wrapper">
-        <section className="sticky-section h-screen flex justify-center items-center bg-black">
-          <div className="flex flex-col justify-center items-center">
-            {["Something", "Then", "Crazy", "Happened"].map((text, index) => (
-              <motion.p
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={textVariants}
-                className="text-white text-6xl font-bold text-center"
-              >
-                {text}
-              </motion.p>
-            ))}
-          </div>
-        </section>
-      </div>
-      <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black text-white flex flex-col gap-36 justify-between items-center">
+      <TextEffect/>
+      <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black py-20 text-white flex flex-col gap-28 justify-between items-center">
       {Array(4).fill(0).map((_, index) => (
         <div
           key={index}
           data-index={index}
           className={`observer-element flex flex-col justify-center items-center gap-10 transition-transform duration-300 ease-in-out transform ${
-            index === activeIndex ? 'scale-110' : 'scale-100'
+            index === activeIndex ? 'scale-110 text-white' : 'scale-90 text-white/10'
           }`}>
           <div className={`rounded-3xl flex justify-center items-center transition-colors duration-300 ease-in-out ${
-            index === activeIndex ? 'bg-purple-600' : 'bg-gray-500'
+            index === activeIndex ? 'bg-purple-600 ' : 'bg-gray-500/40 '
           }`}>
-            <p className="text-6xl text-white font-semibold py-5 px-10">A</p>
+            <p className="text-6xl font-semibold py-5 px-10">A</p>
           </div>
-          <p className="text-white text-[80px] font-semibold">Narrative</p>
+          <p className="text-[80px] font-semibold">Narrative</p>
         </div>
       ))}
     </section>
+
    <SplitImageEffect/>
     </>
   );

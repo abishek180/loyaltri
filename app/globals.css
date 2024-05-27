@@ -32,5 +32,17 @@ body {
   }
 }
 
+.active {
+  opacity: 1;
+  transform: scale(1.2);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Optional: Define initial styles for the text elements */
+.p-animate {
+  opacity: 0.5;
+  transform: scale(1);
+  transition: opacity 0.3s, transform 0.3s;
+}
 
 
