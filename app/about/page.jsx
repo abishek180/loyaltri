@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import story from "@/public/images/story.jpg";
 import SplitImageEffect from "@/components/SplitImageEffect";
-import TextEffect from "@/components/TextEffect";
+import TextEffect from "@/components/TextEffect2";
 
 const Page = () => {
   const controls = useAnimation();
