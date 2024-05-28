@@ -21,10 +21,15 @@ const TextEffect2 = () => {
             end: 'bottom 0%',
             scrub: true,
             onEnter: () => {
-              gsap.to(text, { opacity: 1, scale: 1.2, duration: 0.5 });
+              gsap.to(text, { opacity: 1, scale: 1.2, duration: 0.3 });
+
+              // Reset the previous text element
+              if (index > 0) {
+                gsap.to(textElements[index - 1], { scale: 1, duration: 0.3 });
+              }
             },
             onLeaveBack: () => {
-              gsap.to(text, { opacity: 0.2, scale: 1, duration: 0.5 });
+              gsap.to(text, { opacity: 0.2, scale: 1, duration: 0.3 });
             },
           },
         }
