@@ -9,31 +9,26 @@ const TextEffect2 = () => {
     const textElements = document.querySelectorAll('.animated-text');
 
     textElements.forEach((text, index) => {
-      gsap.fromTo(
-        text,
-        { opacity: 0.2, scale: 1 },
-        {
-          opacity: 1,
-          scale: 1.2,
-          scrollTrigger: {
-            trigger: text,
-            start: 'top 0%',
-            end: 'bottom 0%',
-            scrub: true,
-            onEnter: () => {
-              gsap.to(text, { opacity: 1, scale: 1.2, duration: 0.3 });
-
-              // Reset the previous text element
-              if (index > 0) {
-                gsap.to(textElements[index - 1], { scale: 1, duration: 0.3 });
-              }
-            },
-            onLeaveBack: () => {
-              gsap.to(text, { opacity: 0.2, scale: 1, duration: 0.3 });
-            },
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: text,
+          start: 'top 0%',
+          end: 'bottom 0%',
+          scrub: true,
+          onEnter: () => {
+            gsap.to(text, { opacity: 1, scale: 1.2, duration: 0.5 });
+            if (index > 0) {
+              gsap.to(textElements[index - 1], { scale: 1, duration: 0.5 });
+            }
           },
-        }
-      );
+          onLeaveBack: () => {
+            gsap.to(text, { opacity: 0.2, scale: 1, duration: 0.5 });
+          },
+        },
+      });
+
+      // Add a delay between animations
+      tl.to(text, { scale: 1.2, duration: 0.5, delay: index * 0.5 });
     });
   }, []);
 

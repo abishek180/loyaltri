@@ -1,46 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const TextEffect = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [animationStart, setAnimationStart] = useState(false);
+gsap.registerPlugin(ScrollTrigger);
 
+const TextEffect2 = () => {
   useEffect(() => {
-    const handleScroll = () => {
-      const progress = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
-      setScrollProgress(progress);
+    const textElements = document.querySelectorAll('.animated-text');
 
-      // Check if sticky section reaches top-0
-      const stickySection = document.querySelector('.sticky-section');
-      if (stickySection) {
-        const { top } = stickySection.getBoundingClientRect();
-        setAnimationStart(top <= 0);
-      }
-    };
+    textElements.forEach((text, index) => {
+      gsap.fromTo(
+        text,
+        { opacity: 0.2, scale: 1 },
+        {
+          opacity: 1,
+          scale: 1.2,
+          scrollTrigger: {
+            trigger: text,
+            start: 'top 0%',
+            end: 'bottom 0%',
+            scrub: true,
+            onEnter: () => {
+              gsap.to(text, { opacity: 1, scale: 1.2, duration: 0.3 });
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+              // Reset the previous text element
+              if (index > 0) {
+                gsap.to(textElements[index - 1], { scale: 1, duration: 0.3 });
+              }
+            },
+            onLeaveBack: () => {
+              gsap.to(text, { opacity: 0.2, scale: 1, duration: 0.3 });
+            },
+          },
+        }
+      );
+    });
   }, []);
 
   return (
     <div>
-      <div className="sticky-wrapper h-[350vh]">
+      <div className="sticky-wrapper h-[200vh]">
         <section className="sticky-section sticky top-0 h-screen flex justify-center items-center bg-black">
           <div className="flex flex-col justify-center items-center">
             {["Then", "something", "crazy", "happened"].map((text, index) => (
-              <motion.p
+              <p
                 key={index}
-                className={`text-${animationStart && scrollProgress > index * 0.2 ? 'white' : 'white/20'} text-[86px] font-semibold text-center leading-none transition-all ease-in-out duration-300`}
-
-                style={{
-                  scale: animationStart && scrollProgress > index * 0.2 ? 1.2 : 1,
-                }}
+                className="animated-text text-white text-[86px] font-semibold text-center leading-none"
+                style={{ opacity: 0.2 }}
               >
                 {text}
-              </motion.p>
+              </p>
             ))}
           </div>
         </section>
@@ -49,4 +58,4 @@ const TextEffect = () => {
   );
 };
 
-export default TextEffect;
+export default TextEffect2;
