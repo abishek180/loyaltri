@@ -36,14 +36,14 @@ export const ImageSlider = () => {
   const handleMouseLeave = () => setIsDragging(false);
 
   return (
-    <div className="max-w-screen-xl mx-auto flex justify-center items-center relative py-40">
-      <div className="absolute left-1/2 top-[-300px] -translate-x-1/2 w-[1220px] h-[800px] -z-20">
+    <div className="max-w-screen-xl mx-auto flex justify-center items-center relative py-20 lg:py-40">
+      <div className="absolute left-1/2 top-[-300px] -translate-x-1/2 w-full h-full lg:w-[1220px] lg:h-[800px] -z-20">
         <Image
           src={ellipse1}
           className="w-full h-full object-cover object-center"
         />
       </div>
-      <div className="absolute left-1/2 top-[50px] -translate-x-1/2 -z-10 w-[1283px]">
+      <div className="absolute left-1/2 top-[50px] -translate-x-1/2 -z-10 w-full lg:w-[1283px]">
         <Image
           src={ellipse}
           className="w-full h-full object-cover object-center"
@@ -79,13 +79,13 @@ export const ImageSlider = () => {
           <p className="text-[26px] text-white font-bold">2010</p>
         </div>
         <div
-          className="relative w-[800px] bg-[#141414] border border-[#828282] p-5 rounded-[32px]"
+          className="relative w-[300px] lg:w-[800px] bg-[#141414] border border-[#828282] p-2 lg:p-4 rounded-[32px]"
           onMouseLeave={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
         >
           <div className="overflow-hidden rounded-2xl">
             <div
-              className="relative w-full max-w-[800px] aspect-[70/45] overflow-hidden select-none"
+              className="relative w-[300px] lg:w-[800px] aspect-[70/45] overflow-hidden select-none"
               onMouseMove={handleMouseMove}
               onTouchMove={handleTouchMove}
               onMouseEnter={handleMouseEnter}
@@ -100,7 +100,7 @@ export const ImageSlider = () => {
               />
 
               <div
-                className="absolute top-0 left-0 right-0 w-full max-w-[800px] aspect-[70/45] overflow-hidden select-none"
+                className="absolute top-0 left-0 right-0 w-[300px] lg:w-[800px] aspect-[70/45] overflow-hidden select-none"
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <Image

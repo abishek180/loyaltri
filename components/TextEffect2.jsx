@@ -40,7 +40,7 @@ const TextEffect2 = () => {
             {["Then", "something", "crazy", "happened"].map((text, index) => (
               <p
                 key={index}
-                className="animated-text text-white text-[86px] font-semibold text-center leading-none"
+                className="animated-text text-white text-[50px] lg:text-[86px] font-semibold text-center leading-none"
                 style={{ opacity: 0.2 }}
               >
                 {text}

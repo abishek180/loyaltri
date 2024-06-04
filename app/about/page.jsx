@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import logo from "@/public/images/logo.png";
 import SplitImageEffect from "@/components/SplitImageEffect";
-import TextEffect from "@/components/TextEffect2";
+import TextEffect2 from "@/components/TextEffect2";
 import ResizePanel from "@/components/ResizePanel";
 import ResizeMain from "@/components/ResizeMain";
 import AnimatedDiv from "@/components/AnimatedDiv";
@@ -83,7 +83,7 @@ const Page = () => {
     <>
       <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 pt-20 py-20 flex flex-col gap-20">
         <div className="flex flex-col justify-center items-center gap-10 relative">
-          <div className="w-[600px] h-[600px] overflow-hidden rounded-3xl">
+          <div className="w-full h-full lg:w-[600px] lg:h-[600px] overflow-hidden rounded-3xl">
             <Image
               src={logo}
               className="w-full h-full object-cover object-center"
@@ -91,13 +91,13 @@ const Page = () => {
             />
           </div>
           {/* <p>Mayuresh & Tejas' story of creating Chronicle.</p> */}
-          <h1 className="absolute text-center text-[59px] text-white font-bold leading-normal pt-10">
+          <h1 className="absolute text-center text-[40px] lg:text-[59px] text-white font-bold leading-normal pt-10">
           THE LEADING LIGHT IN THE BATTLE OF FUNCTIONALITY
           </h1>
         </div>
         <div className="flex flex-col justify-center items-center gap-5">
           <p className="text-[#81859F] text-2xl font-normal">About us</p>
-          <p className="text-[#81859F] text-4xl font-bold">Story of  creating Loyaltri.</p>
+          <p className="text-[#81859F] text-center text-3xl lg:text-4xl font-bold">Story of  creating Loyaltri.</p>
           <motion.span
             ref={ref}
             initial="hidden"
@@ -142,7 +142,7 @@ const Page = () => {
       </section>
       {/* <ResizeMain /> */}
       <ImageSlider/>
-      <TextEffect />
+      <TextEffect2 />
       {/* <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black py-20 text-white flex flex-col gap-28 justify-between items-center">
         {Array(4)
           .fill(0)
