@@ -4,15 +4,19 @@ import ResizePanel from "./ResizePanel";
 import style from "./Resizemain.module.css";
 import classNames from "classnames/bind";
 import Image from "next/image";
-import story from "@/public/images/story.jpg";
+import story from "@/public/images/loyaltrinew.png";
 import story1 from "@/public/images/loyaltriold.png";
 import ellipse from "@/public/images/Ellipse.png";
+import ellipse1 from "@/public/images/Ellipse1.png";
 
 let cx = classNames.bind(style);
 
 export default () => (
   <div className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 flex flex-col lg:flex-row justify-between gap-10 items-center relative py-40">
-    <div className="absolute left-1/2 top-0 -translate-x-1/2 -z-10 w-[1283px]">
+    <div className="absolute left-1/2 top-[-300px] -translate-x-1/2 w-[1220px] h-[800px] -z-20">
+        <Image src={ellipse1} className="w-full h-full object-cover object-center"/>
+    </div>
+    <div className="absolute left-1/2 top-[50px] -translate-x-1/2 -z-10 w-[1283px]">
         <Image src={ellipse} className="w-full h-full object-cover object-center"/>
     </div>
     {/* <div className="absolute left-1/2 top-[80px] border border-[#404040] -translate-x-1/2 w-[1283px] h-[1250px] bg-black rounded-full -z-10 shrink-0">
@@ -43,7 +47,7 @@ export default () => (
           </linearGradient>
         </defs>
       </svg>
-      <p className="text-[26px] text-white font-bold">2012</p>
+      <p className="text-[26px] text-white font-bold">2010</p>
     </div>
     <div className={cx("container")}>
       {/* <ResizePanel direction="s">
@@ -116,7 +120,7 @@ export default () => (
           </linearGradient>
         </defs>
       </svg>
-      <p className="text-[26px] text-white font-bold">2012</p>
+      <p className="text-[26px] text-white font-bold">2024</p>
     </div>
   </div>
 );

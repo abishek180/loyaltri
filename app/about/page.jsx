@@ -8,6 +8,9 @@ import SplitImageEffect from "@/components/SplitImageEffect";
 import TextEffect from "@/components/TextEffect2";
 import ResizePanel from "@/components/ResizePanel";
 import ResizeMain from "@/components/ResizeMain";
+import AnimatedDiv from "@/components/AnimatedDiv";
+import { GlobeDemo } from "@/components/GlobeDemo";
+import { ImageSlider } from "@/components/ImageSlider";
 
 const Page = () => {
   const controls = useAnimation();
@@ -137,7 +140,8 @@ const Page = () => {
           </motion.div>
         </div>
       </section>
-      <ResizeMain />
+      {/* <ResizeMain /> */}
+      <ImageSlider/>
       <TextEffect />
       {/* <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black py-20 text-white flex flex-col gap-28 justify-between items-center">
         {Array(4)
@@ -163,6 +167,8 @@ const Page = () => {
             </div>
           ))}
       </section> */}
+      <AnimatedDiv/>
+      <GlobeDemo/>
 
 
     </>
