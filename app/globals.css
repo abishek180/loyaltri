@@ -45,4 +45,25 @@ body {
   transition: opacity 0.3s, transform 0.3s;
 }
 
+/* custom.css */
+/* .arrow {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid #6D4EFF;
+  color: #6D4EFF; 
+} */
+.arrow {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: inherit; /* To inherit the color from the parent div */
+  transform: rotate(45deg);
+  border-radius: 0 0 8px 0; /* Adjust this for the rounded edge */
+  position: absolute;
+}
 

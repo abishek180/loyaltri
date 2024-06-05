@@ -395,8 +395,8 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className="px-10 flex flex-col items-center justify-center gap-10 py-20 lg:py-40 dark:bg-black bg-white relative w-full">
-        <p className="text-white text-4xl font-medium">Our history isn't merely a story. It is a tale of <span className="text-[rgba(125,_109,_235,_1)]">SUCCESS</span></p>
+    <div className="flex flex-col items-center justify-center gap-10 dark:bg-black bg-white relative w-full">
+        <p className="text-[#C6C6C6] text-2xl lg:text-[40px] font-medium">Our history isn't merely a story. It is a tale of <span className="text-[rgba(125,_109,_235,_1)] text-3xl lg:text-5xl font-semibold">SUCCESS</span></p>
       <div className="flex flex-col lg:flex-row justify-center items-center">
         <motion.div
           initial={{
@@ -415,7 +415,7 @@ export function GlobeDemo() {
           {/* <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
             We sell soap worldwide
           </h2> */}
-          <p className="text-left text-base md:text-6xl font-semibold text-white w-full lg:w-[600px]">
+          <p className="text-left text-base lg:text-4xl font-semibold text-white w-full lg:w-[600px]">
             Now, our software has expanded to many cities of GCC and India, with
             1000+ client
           </p>

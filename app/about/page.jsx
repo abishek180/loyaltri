@@ -3,14 +3,23 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+// Images
 import logo from "@/public/images/logo.png";
-import SplitImageEffect from "@/components/SplitImageEffect";
+import story from "@/public/images/story.jpeg";
+import redbg from "@/public/images/redbg.png";
+import redicon from "@/public/images/redicon.png";
+import bluebg from "@/public/images/bluebg.png";
+import blueicon from "@/public/images/blueicon.png";
+import hr from "@/public/images/hr.png";
+import meeting from "@/public/images/meeting.png";
+import popup from "@/public/images/pop-up.png";
+
+// Components
 import TextEffect2 from "@/components/TextEffect2";
-import ResizePanel from "@/components/ResizePanel";
-import ResizeMain from "@/components/ResizeMain";
 import AnimatedDiv from "@/components/AnimatedDiv";
 import { GlobeDemo } from "@/components/GlobeDemo";
 import { ImageSlider } from "@/components/ImageSlider";
+import AnimatedLineBox from "@/components/AnimatedLineBox";
 
 const Page = () => {
   const controls = useAnimation();
@@ -45,6 +54,7 @@ const Page = () => {
     hidden: { opacity: 0, scale: 0 },
     visibleBox: { opacity: 1, scale: 1 },
   };
+  
 
   const [activeIndex, setActiveIndex] = useState(-1);
 
@@ -92,12 +102,14 @@ const Page = () => {
           </div>
           {/* <p>Mayuresh & Tejas' story of creating Chronicle.</p> */}
           <h1 className="absolute text-center text-[40px] lg:text-[59px] text-white font-bold leading-normal pt-10">
-          THE LEADING LIGHT IN THE BATTLE OF FUNCTIONALITY
+            THE LEADING LIGHT IN THE BATTLE OF FUNCTIONALITY
           </h1>
         </div>
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div className="flex flex-col justify-center items-center gap-6">
           <p className="text-[#81859F] text-2xl font-normal">About us</p>
-          <p className="text-[#81859F] text-center text-3xl lg:text-4xl font-bold">Story of  creating Loyaltri.</p>
+          <p className="text-[#81859F] text-center text-3xl lg:text-4xl font-bold">
+            Story of creating Loyaltri.
+          </p>
           <motion.span
             ref={ref}
             initial="hidden"
@@ -105,6 +117,7 @@ const Page = () => {
             variants={lineVariants}
             className="w-[1px] bg-[linear-gradient(180deg,#111,#414141)]"
           ></motion.span>
+
           <motion.div
             initial="hidden"
             animate={controls}
@@ -138,11 +151,79 @@ const Page = () => {
             </svg>
             <p className="text-[26px] text-white font-bold">2012</p>
           </motion.div>
+          <p className="text-white text-center text-3xl lg:text-4xl font-normal w-full lg:w-[900px]">
+            Our story of{" "}
+            <span className="text-[#7D6DEB] text-4xl lg:text-5xl font-semibold">
+              LOYALTRI
+            </span>{" "}
+            started when we found the struggles of the education sector lacking
+            HRMS software.
+          </p>
         </div>
       </section>
-      {/* <ResizeMain /> */}
-      <ImageSlider/>
+      <ImageSlider />
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
+        <div className="flex flex-col justify-center items-center gap-20">
+          <p className="text-[#C6C6C6] text-center text-2xl lg:text-4xl font-normal">
+            We created a version called{" "}
+            <span className="text-[#7D6DEB] text-3xl lg:text-5xl font-semibold">
+              WFM
+            </span>{" "}
+            and presented it to schools.
+          </p>
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
+            <div className="overflow-hidden w-full lg:w-[600px] h-[460px] rounded-2xl">
+              <Image
+                src={story}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <p className="text-[#C6C6C6] font-light text-2xl lg:text-4xl w-full lg:w-[550px]">
+              Schools reported that WFM was intuitive and easy to use, making
+              the transition from old systems smooth and reducing the time.
+            </p>
+          </div>
+        </div>
+      </section>
       <TextEffect2 />
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
+        <div className="flex flex-col justify-center items-center gap-20">
+          <p className="text-[#C6C6C6] text-justify text-2xl lg:text-4xl font-normal w-full lg:w-[900px]">
+            <span className="text-white text-3xl lg:text-5xl font-semibold">
+              Success
+            </span>{" "}
+            and leads us to more development in our software. We gradually
+            expanded our software into the Health and Retail sectors.
+          </p>
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
+            <div className="overflow-hidden rounded-full w-[180px] h-[180px] relative">
+              <Image
+                src={redbg}
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="overflow-hidden rounded-full w-[140px] h-[140px] absolute left-1/2 top-5 -translate-x-1/2">
+                <Image
+                  src={redicon}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-full w-[180px] h-[180px] relative">
+              <Image
+                src={bluebg}
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="overflow-hidden rounded-full w-[140px] h-[140px] absolute left-1/2 top-5 -translate-x-1/2">
+                <Image
+                  src={blueicon}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
+          <AnimatedLineBox />
+        </div>
+      </section>
       {/* <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black py-20 text-white flex flex-col gap-28 justify-between items-center">
         {Array(4)
           .fill(0)
@@ -167,10 +248,69 @@ const Page = () => {
             </div>
           ))}
       </section> */}
-      <AnimatedDiv/>
-      <GlobeDemo/>
-
-
+      {/* <AnimatedDiv /> */}
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 h-screen flex flex-col justify-center items-center gap-24 lg:gap-32">
+        <div className="flex flex-col gap-5">
+          <p className="text-[#7D6DEB] text-[56px] font-semibold uppercase">
+            QUERY
+          </p>
+          <p className="text-white text-xl lg:text-[40px] font-semibold">
+            The constant question we faced then was
+          </p>
+        </div>
+        <div className="overflow-hidden w-[700px]">
+          <Image
+            src={popup}
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+      </section>
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
+        <div className="flex flex-col justify-center items-center gap-20">
+          <p className="text-[#C6C6C6] text-2xl lg:text-4xl w-full lg:w-[1050px] font-normal">
+            We ensured a humble{" "}
+            <span className="font-semibold text-3xl lg:text-5xl text-[#7D6DEB]">
+              beginning
+            </span>{" "}
+            again from scratch. This time we shifted our course of making
+            software.
+          </p>
+          <AnimatedLineBox />
+          <p className="text-[#C6C6C6] text-2xl lg:text-4xl w-full lg:w-[1050px] text-center font-normal">
+            We interviewed{" "}
+            <span className="font-semibold text-3xl lg:text-5xl text-[#7D6DEB]">
+              100+ HR Pros
+            </span>{" "}
+            and listed all of their struggles..
+          </p>
+          <div className="overflow-hidden w-full lg:w-[700px]">
+            <Image
+              src={hr}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+          <p className="text-[#C6C6C6] text-2xl lg:text-4xl w-full lg:w-[1050px] text-center font-normal">
+            We discussed this with our entire team, consisting of{" "}
+            <span className="font-semibold text-3xl lg:text-5xl text-[#7D6DEB]">
+              50
+            </span>{" "}
+            employees.
+          </p>
+          <div className="overflow-hidden w-full lg:w-[700px]">
+            <Image
+              src={meeting}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+          <p className="text-[#C6C6C6] text-2xl lg:text-4xl w-full lg:w-[1050px] text-center font-normal">
+            Thus, a new HRMS Software came into being. And we started to call it
+            as
+          </p>
+        </div>
+      </section>
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
+        <GlobeDemo />
+      </section>
     </>
   );
 };

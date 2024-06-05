@@ -15,6 +15,7 @@ const AnimatedDiv = () => {
       zIndex: 10,
       duration: 0.5,
       ease: "power2.inOut",
+      opacity: 1, // Ensure full opacity when scaled up
     })
       .to(box1Ref.current, {
         scale: 1,
@@ -22,6 +23,7 @@ const AnimatedDiv = () => {
         zIndex: 1,
         duration: 1,
         ease: "power2.inOut",
+        opacity: 0, // Fade out when scaling down
       })
       .to(
         box2Ref.current,
@@ -31,6 +33,7 @@ const AnimatedDiv = () => {
           zIndex: 10,
           duration: 0.5,
           ease: "power2.inOut",
+          opacity: 1, // Ensure full opacity when scaled up
         },
         "-=0.5"
       )
@@ -40,6 +43,7 @@ const AnimatedDiv = () => {
         zIndex: 1,
         duration: 1,
         ease: "power2.inOut",
+        opacity: 0, // Fade out when scaling down
       })
       .to(
         box3Ref.current,
@@ -49,6 +53,7 @@ const AnimatedDiv = () => {
           zIndex: 10,
           duration: 0.5,
           ease: "power2.inOut",
+          opacity: 1, // Ensure full opacity when scaled up
         },
         "-=0.5"
       )
@@ -58,6 +63,7 @@ const AnimatedDiv = () => {
         zIndex: 1,
         duration: 1,
         ease: "power2.inOut",
+        opacity: 0, // Fade out when scaling down
       });
   }, []);
 
@@ -74,30 +80,33 @@ const AnimatedDiv = () => {
       <div className="relative">
         <div
           ref={box1Ref}
-          className="w-[280px] lg:w-[800px] rounded-[46px] bg-[#6D4EFF] p-3 lg:p-10 flex justify-center items-center absolute top-0 left-1/2 -translate-x-1/2"
-          style={{ zIndex: 1 }}
+          className="w-[280px] lg:w-[650px] rounded-[35px] bg-[#6D4EFF] p-3 lg:p-7 flex justify-center items-center absolute top-0 left-1/2 -translate-x-1/2"
+          style={{ zIndex: 1, opacity: 0 }}
         >
-          <p className="text-white text-sm lg:text-5xl font-medium text-center">
+          <p className="text-white text-sm lg:text-4xl font-medium">
             HOW YOU GONNA UPGRADE YOUR SOFTWARE??
           </p>
+          <div className="arrow absolute bottom-[-10px] left-20"></div>
         </div>
         <div
           ref={box2Ref}
-          className="w-[280px] lg:w-[800px] rounded-[46px] bg-[#4e31d1] p-3 lg:p-10 flex justify-center items-center absolute top-0 left-1/2 -translate-x-1/2"
-          style={{ zIndex: -1 }}
+          className="w-[280px] lg:w-[650px] rounded-[35px] bg-[#6D4EFF] p-3 lg:p-7 flex justify-center items-center absolute top-0 left-1/2 -translate-x-1/2"
+          style={{ zIndex: -1, opacity: 0 }}
         >
-          <p className="text-white text-sm lg:text-5xl font-medium text-center">
-            hgfdvafdbvDOJFANJDFFD NNJNBB NBNBBKB{" "}
+          <p className="text-white text-sm lg:text-4xl font-medium">
+            hgfdvafdbvDOJFANJDFFD NNJNBB NBNBBKB
           </p>
+          <div className="arrow absolute bottom-[-10px] left-20"></div>
         </div>
         <div
           ref={box3Ref}
-          className="w-[280px] lg:w-[800px] rounded-[46px] bg-[#24185e] p-3 lg:p-10 flex justify-center items-center absolute top-0 left-1/2 -translate-x-1/2"
-          style={{ zIndex: -2 }}
+          className="w-[280px] lg:w-[650px] rounded-[35px] bg-[#6D4EFF] p-3 lg:p-7 flex justify-center items-center absolute top-0 left-1/2 -translate-x-1/2"
+          style={{ zIndex: -2, opacity: 0 }}
         >
-          <p className="text-white text-sm lg:text-5xl font-medium text-center">
-            with jdjivjdwviwv IARGIARGRGN DGNGNG{" "}
+          <p className="text-white text-sm lg:text-4xl font-medium">
+            with jdjivjdwviwv IARGIARGRGN DGNGNG
           </p>
+          <div className="arrow absolute bottom-[-10px] left-20"></div>
         </div>
       </div>
     </div>

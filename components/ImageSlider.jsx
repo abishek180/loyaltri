@@ -79,13 +79,13 @@ export const ImageSlider = () => {
           <p className="text-[26px] text-white font-bold">2010</p>
         </div>
         <div
-          className="relative w-[300px] md:w-[500px] lg:w-[800px] bg-[#141414] border border-[#828282] p-2 lg:p-4 rounded-[32px]"
+          className="relative w-[300px] md:w-[550px] lg:w-[800px] bg-[#141414] border border-[#828282] p-2 lg:p-4 rounded-[32px]"
           onMouseLeave={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
         >
           <div className="overflow-hidden rounded-2xl">
             <div
-              className="relative w-[300px] md:w-[500px] lg:w-[800px] aspect-[70/45] overflow-hidden select-none"
+              className="relative w-[300px] md:w-[550px] lg:w-[800px] aspect-[70/45] overflow-hidden select-none"
               onMouseMove={handleMouseMove}
               onTouchMove={handleTouchMove}
               onMouseEnter={handleMouseEnter}
@@ -100,7 +100,7 @@ export const ImageSlider = () => {
               />
 
               <div
-                className="absolute top-0 left-0 right-0 w-[300px] md:w-[500px] lg:w-[800px] aspect-[70/45] overflow-hidden select-none"
+                className="absolute top-0 left-0 right-0 w-[300px] md:w-[550px] lg:w-[800px] aspect-[70/45] overflow-hidden select-none"
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <Image
