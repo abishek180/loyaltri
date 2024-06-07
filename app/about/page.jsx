@@ -20,6 +20,7 @@ import AnimatedDiv from "@/components/AnimatedDiv";
 import { GlobeDemo } from "@/components/GlobeDemo";
 import { ImageSlider } from "@/components/ImageSlider";
 import AnimatedLineBox from "@/components/AnimatedLineBox";
+import ServiceType from "@/components/ServiceType";
 
 const Page = () => {
   const controls = useAnimation();
@@ -39,7 +40,7 @@ const Page = () => {
   const lineVariants = {
     hidden: { height: 0 },
     visible: {
-      height: "15rem",
+      height: "0",
       transition: {
         duration: 1,
         when: "beforeChildren",
@@ -185,6 +186,9 @@ const Page = () => {
           </div>
         </div>
       </section>
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
+        <ServiceType />
+      </section>
       <TextEffect2 />
       <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
         <div className="flex flex-col justify-center items-center gap-20">
@@ -258,7 +262,7 @@ const Page = () => {
             The constant question we faced then was
           </p>
         </div>
-        <div className="overflow-hidden w-[700px]">
+        <div className="overflow-hidden w-full lg:w-[700px]">
           <Image
             src={popup}
             className="w-full h-full object-cover object-center"
