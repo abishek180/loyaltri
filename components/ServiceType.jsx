@@ -77,17 +77,17 @@ function ServiceType() {
 							}
 						}
 					}}>
-						<Box className="photo">
+						<Box className="photo rounded-2xl overflow-hidden">
 							<img
 								src="http://static.showit.co/800/M0IzUCMvQCqlJn1YtNlikw/59514/pexels-yan-5793641-1.jpg"
 								alt="img-1" />
 						</Box>
-						<Box className="photo">
+						<Box className="photo rounded-2xl overflow-hidden">
 							<img
 								src="http://static.showit.co/800/137NFxuzSxeyjlons2WEzA/59514/pexels-yan-5793643.jpg"
 								alt="img-2" />
 						</Box>
-						<Box className="photo">
+						<Box className="photo rounded-2xl overflow-hidden">
 							<img
 								src="http://static.showit.co/800/3kOLYaOCS1SMieN6Y88Fqg/59514/mukuko-studio-mu88mlefcou-unsplash.jpg"
 								alt="img-3" />

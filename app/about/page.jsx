@@ -55,7 +55,6 @@ const Page = () => {
     hidden: { opacity: 0, scale: 0 },
     visibleBox: { opacity: 1, scale: 1 },
   };
-  
 
   const [activeIndex, setActiveIndex] = useState(-1);
 
@@ -228,45 +227,22 @@ const Page = () => {
           <AnimatedLineBox />
         </div>
       </section>
-      {/* <section className=" max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 bg-black py-20 text-white flex flex-col gap-28 justify-between items-center">
-        {Array(4)
-          .fill(0)
-          .map((_, index) => (
-            <div
-              key={index}
-              data-index={index}
-              className={`observer-element flex flex-col justify-center items-center gap-10 transition-transform duration-300 ease-in-out transform ${
-                index === activeIndex
-                  ? "scale-110 text-white"
-                  : "scale-90 text-white/10"
-              }`}
-            >
-              <div
-                className={`rounded-3xl flex justify-center items-center transition-colors duration-300 ease-in-out ${
-                  index === activeIndex ? "bg-purple-600 " : "bg-gray-500/40 "
-                }`}
-              >
-                <p className="text-6xl font-semibold py-5 px-10">A</p>
-              </div>
-              <p className="text-[80px] font-semibold">Narrative</p>
-            </div>
-          ))}
-      </section> */}
-      {/* <AnimatedDiv /> */}
-      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 h-screen flex flex-col justify-center items-center gap-24 lg:gap-32">
-        <div className="flex flex-col gap-5">
-          <p className="text-[#7D6DEB] text-[56px] font-semibold uppercase">
-            QUERY
-          </p>
-          <p className="text-white text-xl lg:text-[40px] font-semibold">
-            The constant question we faced then was
-          </p>
-        </div>
-        <div className="overflow-hidden w-full lg:w-[700px]">
-          <Image
-            src={popup}
-            className="w-full h-full object-cover object-center"
-          />
+      <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0">
+        <div className="h-screen flex flex-col justify-center items-center gap-24 lg:gap-32">
+          <div className="flex flex-col gap-5">
+            <p className="text-[#7D6DEB] text-[56px] font-semibold uppercase">
+              QUERY
+            </p>
+            <p className="text-white text-xl lg:text-[40px] font-semibold">
+              The constant question we faced then was
+            </p>
+          </div>
+          <div className="overflow-hidden w-full lg:w-[700px]">
+            <Image
+              src={popup}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
         </div>
       </section>
       <section className="max-w-screen-xl mx-auto px-5 lg:px-10 2xl:px-0 py-20">
